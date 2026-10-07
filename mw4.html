@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .code-container {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program 4 Code</h2>
+
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode()">Copy</button>
+        <code id="codeBlock">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Novel Books&lt;/title&gt;
+    &lt;link rel="stylesheet" href="book.css"&gt;
+    &lt;style&gt;
+        .content { display: flex; flex-direction: column; align-items: center; }
+        .image-content { margin: 50px; display: flex; }
+        .author-info { margin: 20px; }
+        .works { margin-top: 25px; }
+        table, th, td { margin-top: 10px; border-collapse: collapse; padding: 5px; border: 1px solid white; }
+    </style>
+&lt;/head&gt;
+&lt;body&gt;
+&lt;style&gt;body { background-image: url('car.jpg'); background-size: cover; background-attachment: fixed; }&lt;/style&gt;
+
+    &lt;div class="content"&gt;
+        &lt;h1&gt;The Great Indian Novel&lt;/h1&gt;
+        &lt;h3 style="padding-top: 20px;"&gt;Ponniyin Selvan&lt;/h3&gt;
+    &lt;/div&gt;
+
+    &lt;div class="image-content"&gt;
+        &lt;a href="https://ponniyinselvan.in"&gt;
+            &lt;img src="car.jpg" alt="Book Cover"&gt;
+            &lt;p style="font-weight: 600; color: aliceblue; text-align: center; padding-top: 20px;"&gt;Read it&lt;/p&gt;
+        &lt;/a&gt;
+
+        &lt;div class="author-info"&gt;
+            &lt;h4&gt;AUTHOR: KALKI KRISHNAMURTHY&lt;/h4&gt;
+            &lt;div style="display: flex;"&gt;
+                &lt;p style="padding-top: 20px; line-height: 27px;"&gt;
+                    Kalki R Krishnamurthy (1899-1954) is a famous Tamil writer best known for historical fiction novels.
+                &lt;/p&gt;
+                &lt;img src="car.jpg" width="180" height="180" alt="Author"&gt;
+            &lt;/div&gt;
+
+            &lt;h4 style="padding-top: 20px;"&gt;HONOURS:&lt;/h4&gt;
+            &lt;p style="padding-top: 20px; line-height: 27px;"&gt;
+                Awarded the Sangeetha Kalasikhamani title in 1953, and a postage stamp was released in his honor.
+            &lt;/p&gt;
+
+            &lt;div class="works"&gt;
+                &lt;h4&gt;Works:&lt;/h4&gt;
+                &lt;table&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Serial&lt;/th&gt;
+                        &lt;th&gt;Name&lt;/th&gt;
+                        &lt;th&gt;Settings&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;01&lt;/td&gt;
+                        &lt;td&gt;Sivagamiyin Sapatham&lt;/td&gt;
+                        &lt;td&gt;Pallava Dynasty&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;02&lt;/td&gt;
+                        &lt;td&gt;Parthiban Kanavu&lt;/td&gt;
+                        &lt;td&gt;Pallava Dynasty&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;03&lt;/td&gt;
+                        &lt;td&gt;Ponniyin Selvan&lt;/td&gt;
+                        &lt;td&gt;Chola Dynasty&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;04&lt;/td&gt;
+                        &lt;td&gt;Solaimalai Ilavarasi&lt;/td&gt;
+                        &lt;td&gt;Independence of India&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+</code>
+    </div>
+
+    <script>
+        function copyCode() {
+            const codeText = document.getElementById("codeBlock").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy"; }, 2000);
+            }).catch(err => {
+                alert("Failed to copy code: ", err);
+            });
+        }
+    </script>
+
+</body>
+</html>

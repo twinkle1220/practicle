@@ -45,6 +45,79 @@
         <button class="copy-btn" onclick="copyCode()">Copy</button>
         <code id="codeBlock">
 
+package program;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet; 
+import java.sql.*;
+import java.io.*;
+
+@WebServlet("/Registration") 
+public class pro09 extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter pw = response.getWriter();
+        
+        String regno = request.getParameter("rn");
+        String name = request.getParameter("nn");
+        String dept = request.getParameter("dept");
+        
+        try {
+            
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            
+          
+            try (Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+                 PreparedStatement ps = con.prepareStatement("insert into detail values(?,?,?)")) {
+                
+                ps.setString(1, regno);
+                ps.setString(2, name);
+                ps.setString(3, dept);
+                
+                int i = ps.executeUpdate();
+                pw.println("<h3 style='color:block;'>" + i + " row(s) inserted successfully!</h3>");
+            }
+        } catch (ClassNotFoundException e) {
+            pw.println("<h3>Driver Error: Apache Derby Client Driver not found!</h3>");
+            e.printStackTrace(pw);
+        } catch (SQLException e) {
+            if ("23505".equals(e.getSQLState())) {
+                pw.println("<h3 style='color:block;'>Register No</h3>");
+            } else {
+                pw.println("<h3>Database Error: Failed to execute query.</h3>");
+                e.printStackTrace(pw); 
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE DETAIL (
+    REGNO VARCHAR(50) PRIMARY KEY,
+    NAME VARCHAR(50),
+    DEPT VARCHAR(50)
+);
+
+
 </code>
     </div>
 

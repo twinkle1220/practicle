@@ -44,6 +44,114 @@
     <div class="code-container">
         <button class="copy-btn" onclick="copyCode()">Copy</button>
         <code id="codeBlock">
+
+ normal output method
+
+
+SimpleServer.java_________
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ajplab;
+
+/**
+ *
+ * @author PGLAB_NEW
+ */
+import java.io.*;
+import java.net.*;
+
+public class SimpleServer {
+    public static void main(String[] args) {
+        int port = 12345; 
+        try (ServerSocket serverSocket = new ServerSocket(port)) { 
+            System.out.println("Server is listening on port " + port);
+            while (true) {
+                Socket socket = serverSocket.accept(); 
+                System.out.println("New client connected");
+                new Thread(new ClientHandler(socket)).start();
+            }
+        } catch (IOException e) {
+            System.out.println("Server error: " + e.getMessage());
+        }
+    }
+}
+
+class ClientHandler implements Runnable { 
+    private Socket socket;
+    public ClientHandler(Socket socket) { 
+        this.socket = socket;
+    }
+    public void run() {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+            String message;
+            while ((message = in.readLine()) != null) { 
+                System.out.println("Received from client: " + message); 
+                out.println("Echo: " + message); 
+            }
+        } catch (IOException e) {
+            System.out.println("Client disconnected.");
+        } finally { 
+            try { socket.close(); } catch (IOException e) { }
+        }
+    }
+}
+
+
+SimpleClient.java_____________________
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ajplab;
+
+/**
+ *
+ * @author PGLAB_NEW
+ */
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class SimpleClient {
+    public static void main(String[] args) {
+        String hostname = "localhost"; 
+        int port = 12345; 
+        try (Socket socket = new Socket(hostname, port);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
+             Scanner scanner = new Scanner(System.in)) {
+            
+            System.out.println("Connected to the server"); 
+            String userInput;
+            while (true) {
+                System.out.print("Enter message (exit to quit): ");
+                userInput = scanner.nextLine();
+                if ("exit".equalsIgnoreCase(userInput)) { 
+                    break; 
+                }
+                out.println(userInput); 
+                String response = in.readLine(); 
+                System.out.println("Server response: " + response);
+            }
+        } catch (IOException e) {
+            System.out.println("Client error: " + e.getMessage());
+        }
+    }
+}
+
+
+___________________________________________________________________
+
+cmd method____________
+
 _________pro8__________
 
 simpleserver.java

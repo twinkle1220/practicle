@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .code-container {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program 7 Code</h2>
+
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode()">Copy</button>
+        <code id="codeBlock">
+<code id="codeBlock">
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Input Validation Form&lt;/title&gt;
+
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"&gt;&lt;/script&gt;
+
+    &lt;style&gt;
+        body {
+            background: url("taj.jpg") center/cover;
+            font-family: Arial;
+        }
+
+        .form {
+            width: 250px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+        }
+
+        input {
+            margin: 5px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: lightblue;
+            color: black;
+            border: 2px solid blue;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body ng-app="app" ng-controller="ctrl"&gt;
+
+&lt;div class="form"&gt;
+
+    &lt;h2&gt;Input Validation Form&lt;/h2&gt;
+
+    Username:
+    &lt;input type="text" ng-model="name"&gt;&lt;br&gt;
+
+    Email:
+    &lt;input type="email" ng-model="email"&gt;&lt;br&gt;
+
+    Password:
+    &lt;input type="password" ng-model="pass"&gt;&lt;br&gt;
+
+    Confirm Password:
+    &lt;input type="password" ng-model="cpass"&gt;&lt;br&gt;
+
+    Age:
+    &lt;input type="number" ng-model="age"&gt;&lt;br&gt;
+
+    Date of Birth:
+    &lt;input type="date" ng-model="dob"&gt;&lt;br&gt;
+
+    Phone Number:
+    &lt;input type="text" ng-model="phone"&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button ng-click="submit()"&gt;Submit&lt;/button&gt;
+
+    &lt;div class="result" ng-show="submitted"&gt;
+
+        &lt;h3&gt;Form Submitted Successfully!&lt;/h3&gt;
+
+        Username: {{name}} &lt;br&gt;
+        Email: {{email}} &lt;br&gt;
+        Password: {{pass}} &lt;br&gt;
+        Confirm Password: {{cpass}} &lt;br&gt;
+        Age: {{age}} &lt;br&gt;
+        Date of Birth: {{dob | date:'dd-MM-yyyy'}} &lt;br&gt;
+        Phone: {{phone}}
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;script&gt;
+
+var app = angular.module("app", []);
+
+app.controller("ctrl", function($scope) {
+
+    $scope.submitted = false;
+
+    $scope.submit = function() {
+        alert("Form Submitted Successfully!");
+        $scope.submitted = true;
+    };
+
+});
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code>
+
+</code>
+    </div>
+
+    <script>
+        function copyCode() {
+            const codeText = document.getElementById("codeBlock").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy"; }, 2000);
+            }).catch(err => {
+                alert("Failed to copy code: ", err);
+            });
+        }
+    </script>
+
+</body>
+</html>

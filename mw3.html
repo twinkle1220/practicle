@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .code-container {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program 3 Code</h2>
+
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode()">Copy</button>
+        <code id="codeBlock">
+
+index.html
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Car Home&lt;/title&gt;
+    &lt;style&gt;
+        body { 
+            background-image: url('car.jpg'); 
+            background-size: cover; 
+            background-attachment: fixed;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- Links --&gt;
+    &lt;p&gt;
+        &lt;a href="index.html"&gt;Home&lt;/a&gt; | 
+        &lt;a href="about.html"&gt;About Us&lt;/a&gt; | 
+        &lt;a href="services.html"&gt;Services&lt;/a&gt; | 
+        &lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;hr&gt;
+
+    &lt;h1&gt;Car World&lt;/h1&gt;
+    &lt;p&gt;Welcome to our car website. We provide details about new cars.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+__________________________________________________________________________________________________
+
+about.html
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;About Us&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;style&gt;body { background-image: url('car.jpg'); background-size: cover; }&lt;/style&gt;
+    &lt;p&gt;
+        &lt;a href="index.html"&gt;Home&lt;/a&gt; | 
+        &lt;a href="about.html"&gt;About Us&lt;/a&gt; | 
+        &lt;a href="services.html"&gt;Services&lt;/a&gt; | 
+        &lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;hr&gt;
+
+    &lt;h1&gt;About Us&lt;/h1&gt;
+    &lt;p&gt;We are car lovers sharing information about modern vehicles.&lt;/p>
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+__________________________________________________________________________________________________
+
+contact.html
+
+_____&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Contact Us&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;style&gt;body { background-image: url('car.jpg'); background-size: cover; }&lt;/style&gt;
+    &lt;p&gt;
+        &lt;a href="index.html"&gt;Home&lt;/a&gt; | 
+        &lt;a href="about.html"&gt;About Us&lt;/a&gt; | 
+        &lt;a href="services.html"&gt;Services&lt;/a&gt; | 
+        &lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;hr&gt;
+
+    &lt;h1&gt;Contact Us&lt;/h1&gt;
+    &lt;p&gt;Email: car@email.com&lt;/p&gt;
+    &lt;p&gt;Phone: 9876543210&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+_____________________________________________________________________________________________
+
+services.html
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Services&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;style&gt;body { background-image: url('car.jpg'); background-size: cover; }&lt;/style&gt;
+    &lt;p&gt;
+        &lt;a href="index.html"&gt;Home&lt;/a&gt; | 
+        &lt;a href="about.html"&gt;About Us&lt;/a&gt; | 
+        &lt;a href="services.html"&gt;Services&lt;/a&gt; | 
+        &lt;a href="contact.html"&gt;Contact Us&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;hr&gt;
+
+    &lt;h1&gt;Our Services&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Car buying guides&lt;/li&gt;
+        &lt;li&gt;Car repair tips&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+</code>
+    </div>
+
+    <script>
+        function copyCode() {
+            const codeText = document.getElementById("codeBlock").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy"; }, 2000);
+            }).catch(err => {
+                alert("Failed to copy code: ", err);
+            });
+        }
+    </script>
+
+</body>
+</html>

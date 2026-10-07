@@ -44,6 +44,74 @@
     <div class="code-container">
         <button class="copy-btn" onclick="copyCode()">Copy</button>
         <code id="codeBlock">
+
+normal output method______
+
+pro10.java___
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ajplab;
+
+/**
+ *
+ * @author PGLAB_NEW
+ */
+public class pro10 { 
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Siasc"); 
+        person.setAge(27);
+        
+        System.out.println("Name: " + person.getName()); 
+        System.out.println("Age: " + person.getAge());
+        System.out.println(person);
+    }
+}
+
+
+Person.java___
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ajplab;
+
+/**
+ *
+ * @author PGLAB_NEW
+ */
+import java.io.Serializable;
+public class Person implements Serializable { private String name;
+private int age;
+public Person() {
+}
+public String getName() { return name;
+}
+public void setName(String name) { this.name = name;
+}
+public int getAge() { return age;
+}
+public void setAge(int age) { this.age = age;
+}
+public String toString() {
+return "Person{name='" + name + "', age=" + age + "}";
+}
+}
+
+ 
+___________________________________________________________________
+
+
+
+cmd method___________
+
 step: create D drive-->ajp-->java
 
 step1:  netbeans-->newproject-->maven-->javaapplication
